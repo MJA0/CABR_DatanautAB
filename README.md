@@ -43,3 +43,23 @@
 
 ### problems
 - Unsure about team workflow of SQL with github
+  
+
+# week 3 (25/11/25)
+
+### participants
+- Niklas
+- Adchariya
+- Robin (reporter)
+
+### sprintgoals
+- Create the datebase in SSMS
+- Create the first tables and relations
+
+### What we did
+- Based on our ER-diagram, we created our tables and relations within SSMS
+- We separate the work due to initially having a total of 12 entities, so everyone did 4 each to make it even.
+
+### problems
+- Still unsure of how everything works within SSMS
+- Time that should be put into working on the project is put to tackle problems we encounter due to our experience
