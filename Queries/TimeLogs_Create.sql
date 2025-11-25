@@ -19,4 +19,4 @@ CREATE TABLE TimeLogs(
 ----If no constraint is on FKActivity run this
 --ALTER TABLE TimeLogs
 --ADD CONSTRAINT Fk_Timelogs_Acitvity
---FOREIGN KEY(FKActivity) REFERENCES Activity(ActivityID);
+--FOREIGN KEY(FKActivityID) REFERENCES Activity(ActivityID);
