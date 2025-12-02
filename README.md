@@ -63,3 +63,25 @@
 ### problems
 - Still unsure of how everything works within SSMS
 - Time that should be put into working on the project is put to tackle problems we encounter due to our experience
+
+
+
+### participants
+- Niklas (reporter)
+- Adchariya
+- Robin
+
+### sprintgoals
+- Create trigger to log changes in critical areas
+- Add test data to test trigger
+- Add foreign key constraints to ensure reltionintegrity
+- Add NOT NULL constraints where data is required
+- Add Primary key constraints on all relevant tables
+
+  ### What we did
+  - Added Trigger to check for dublicated members on project
+  - Added test data to test trigger
+  - Update and add attributes to ER diagram
+
+  ### problems
+  - Experienced problems regarding the connection between SSMS and VS code projects
