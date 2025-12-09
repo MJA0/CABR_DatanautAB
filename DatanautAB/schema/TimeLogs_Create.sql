@@ -3,7 +3,7 @@ CREATE TABLE TimeLogs(
 	LogDate DATETIME not null,
 	TimeSpent TIME(0),
 	FKProjectID INT,
-	FKActivity INT not null CONSTRAINT Fk_Timelogs_Acitvity FOREIGN KEY(FKActivity) REFERENCES Activity(ActivityID),
+	FKActivityID INT not null CONSTRAINT Fk_Timelogs_Acitvity FOREIGN KEY(FKActivityID) REFERENCES Activity(ActivityID),
 	FKTeamMemberID INT
 );
 
@@ -19,4 +19,4 @@ CREATE TABLE TimeLogs(
 ----If no constraint is on FKActivity run this
 --ALTER TABLE TimeLogs
 --ADD CONSTRAINT Fk_Timelogs_Acitvity
---FOREIGN KEY(FKActivity) REFERENCES Activity(ActivityID);
+--FOREIGN KEY(FKActivityID) REFERENCES Activity(ActivityID);
