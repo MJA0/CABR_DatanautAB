@@ -9,7 +9,7 @@ BEGIN
         SELECT 1
         FROM ProjectTeam pt
         INNER JOIN inserted i
-            ON pt.FkTeamMember = i.FkTeamMember
+            ON pt.FKTeamMemberID = i.FKTeamMemberID
             AND pt.FkProjectId = i.FkProjectId
         WHERE pt.ProjectTeamID <> i.ProjectTeamID
     )
@@ -35,11 +35,11 @@ BEGIN
             ON pt.FkProjectId = i.FkProjectId
             AND pt.ProjectTeamID <> i.ProjectTeamID 
         JOIN TeamMember tm1 
-            ON tm1.TeamMemberID = pt.FkTeamMember
+            ON tm1.TeamMemberID = pt.FKTeamMemberID
         JOIN TeamMember tm2 
-            ON tm2.TeamMemberID = i.FkTeamMember
+            ON tm2.TeamMemberID = i.FKTeamMemberID
         WHERE tm1.FkSkillID = tm2.FkSkillID
-           OR tm1.FkRoleID  = tm2.FkRoleID
+           OR tm1.FKMemberRoleID  = tm2.FKMemberRoleID
     )
     BEGIN
         PRINT('Overlapping skill or role!');
@@ -55,14 +55,14 @@ GO
 
 -- Resourse: Updates quantity when assigning a software in resourse, if quantity is less than 0 cancel insert
 CREATE TRIGGER software_quantity_update
-ON Resource
+ON ProjectResource
 AFTER INSERT
 AS
 BEGIN
     IF EXISTS (
         SELECT 1
         FROM inserted i
-        JOIN Software s ON i.FKSoftwares = s.SoftwareId
+        JOIN Software s ON i.FKSoftwareID = s.SoftwareId
         WHERE s.SoftwareQuantity <= 0
     )
     BEGIN
@@ -75,5 +75,5 @@ BEGIN
     UPDATE s
     SET s.SoftwareQuantity = s.SoftwareQuantity - 1
     FROM Software s
-    INNER JOIN inserted i ON s.SoftwareId = i.FKSoftwares;
+    INNER JOIN inserted i ON s.SoftwareId = i.FKSoftwareID;
 END;
