@@ -79,13 +79,13 @@
 - Add NOT NULL constraints where data is required
 - Add Primary key constraints on all relevant tables
 
-  ### What we did
-  - Added Trigger to check for dublicated members on project
-  - Added test data to test trigger
-  - Update and add attributes to ER diagram
+### What we did
+- Added Trigger to check for dublicated members on project
+- Added test data to test trigger
+- Update and add attributes to ER diagram
 
-  ### problems
-  - Experienced problems regarding the connection between SSMS and VS code projects
+### problems
+- Experienced problems regarding the connection between SSMS and VS code projects
 
  
 # week 5 (10/11/25)
@@ -96,12 +96,12 @@
 - Robin
 
 ### sprintgoals
-- Implementera dataåtkomst med Entity Framework
+- Implement data access with entity framework, ORM
 
-  ### What we did
-  - Verified last weeks triggers 
-  - Scaffolded database into a C# console app project
-  - Started on a menu system for the database
+### What we did
+- Verified last weeks triggers 
+- Scaffolded database into a C# console app project
+- Started on a menu system for the database
 
-  ### problems
-  - None
+### problems
+- None
