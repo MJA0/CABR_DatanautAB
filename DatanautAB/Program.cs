@@ -1,10 +1,13 @@
-﻿namespace DatanautAB
+﻿using DatanautAB.Data;
+
+namespace DatanautAB
 {
     internal class Program
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("wdalösndmpnwa!");
+            services.AddDbContext<DatanautContext>(options =>
+                options.UseSqlServer(builder.Configuration.GetConnectionString("DatanautDB")));
         }
     }
 }
