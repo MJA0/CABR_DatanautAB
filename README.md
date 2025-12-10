@@ -65,6 +65,7 @@
 - Time that should be put into working on the project is put to tackle problems we encounter due to our experience
 
 
+# week 4 (02/11/25)
 
 ### participants
 - Niklas (reporter)
@@ -85,3 +86,22 @@
 
   ### problems
   - Experienced problems regarding the connection between SSMS and VS code projects
+
+ 
+# week 5 (10/11/25)
+
+### participants
+- Niklas 
+- Adchariya (reporter)
+- Robin
+
+### sprintgoals
+- Implementera dataåtkomst med Entity Framework
+
+  ### What we did
+  - Verified last weeks triggers 
+  - Scaffolded database into a C# console app project
+  - Started on a menu system for the database
+
+  ### problems
+  - None
