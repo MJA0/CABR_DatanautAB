@@ -1,0 +1,7 @@
+ALTER TABLE TimeLogs
+ADD CONSTRAINT Fk_TimeLogs_Project
+FOREIGN KEY(FKProjectID) REFERENCES Project(ProjectID);
+
+ALTER TABLE TimeLogs
+ADD CONSTRAINT Fk_TimeLogs_TeamMember
+FOREIGN KEY(FKTeamMemberID) REFERENCES TeamMember(TeamMemberID);

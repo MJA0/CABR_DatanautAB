@@ -1,0 +1,10 @@
+<Solution>
+  <Configurations>
+    <BuildType Name="Debug" />
+    <BuildType Name="Default" />
+    <BuildType Name="Release" />
+  </Configurations>
+  <Project Path="DatanautAB/DatanautAB.csproj" Id="095ed0da-d7bf-4faf-8914-d255d82497d3">
+    <BuildType Solution="Default|*" Project="Release" />
+  </Project>
+</Solution>
