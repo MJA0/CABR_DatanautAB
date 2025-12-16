@@ -105,3 +105,21 @@
 
 ### Problems
 - None
+
+# week 6 (16/12/25)
+
+### Participants
+- Niklas (reporter)
+- Adchariya
+- Robin
+
+### Sprintgoals
+- implement menu navigate the program
+- Add method features for menu
+
+### What we did
+- created basic menu to navigate
+- Began Added methods to menu logic
+
+### problems
+- None
