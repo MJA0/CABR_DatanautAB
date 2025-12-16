@@ -45,15 +45,15 @@ namespace DatanautAB.Repositories
                 .Include(p => p.FKProjectManager)
                 .Include(p => p.FKProjectStatus)
                 .Include(p => p.ProjectTeams)
-                    .ThenInclude(pt => pt.FKTeamMember)
+                .ThenInclude(pt => pt.FKTeamMember)
                 .Include(p => p.ProjectResources)
-                    .ThenInclude(pr => pr.FKEquipment)
+                .ThenInclude(pr => pr.FKEquipment)
                 .Include(p => p.ProjectResources)
-                    .ThenInclude(pr => pr.FKLicense)
+                .ThenInclude(pr => pr.FKLicense)
                 .Include(p => p.ProjectResources)
-                    .ThenInclude(pr => pr.FKSoftware)
+                .ThenInclude(pr => pr.FKSoftware)
                 .Include(p => p.TimeLogs)
-                    .ThenInclude(t => t.FKActivity)
+                .ThenInclude(t => t.FKActivity)
                 .FirstOrDefault(p => p.ProjectID == projectId);
         }
         public List<Project> GetAllProjects()
@@ -101,6 +101,34 @@ namespace DatanautAB.Repositories
             }
         }
 
+        // Tidslogg med transaktion
+        public void LogTime(int projectId, int memberId, int activityId, TimeSpan time)
+        {
+            using var transaction = _context.Database.BeginTransaction();
+
+            try
+            {
+                var log = new TimeLog
+                {
+                    FKProjectID = projectId,
+                    FKTeamMemberID = memberId,
+                    FKActivityID = activityId,
+                    LogDate = DateTime.Now,
+                    TimeSpent = time
+                };
+
+                _context.TimeLogs.Add(log);
+                _context.SaveChanges();
+
+                transaction.Commit();
+            }
+            catch (Exception)
+            {
+                transaction.Rollback();
+                throw;
+            }
+        }
+
         // TeamMembers
         public void AddTeamMember(TeamMember member)
         {
@@ -132,10 +160,6 @@ namespace DatanautAB.Repositories
                 .Include(t => t.TimeLogs)
                 .FirstOrDefault(t => t.TeamMemberID == memberId);
         }
-
-        
-
-
 
         public List<TeamMember> GetAllTeamMembers()
         {
@@ -231,5 +255,7 @@ namespace DatanautAB.Repositories
             public decimal TotalBudget { get; set; }
             public double TotalHours { get; set; }
         }
+
+
     }
 }
