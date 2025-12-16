@@ -3,6 +3,7 @@ using DatanautAB.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -181,6 +182,12 @@ namespace DatanautAB.Repositories
             return _context.Skills.ToList();
         }
 
+        // Activity
+        public List<Activity> GetAllActivities()
+        {
+            return _context.Activities.ToList();
+        }
+
         // Reports
         public List<ProjectReport> GetProjectReports()
         {
@@ -227,6 +234,48 @@ namespace DatanautAB.Repositories
                         .Select(p => p.Budget ?? 0)
                         .FirstOrDefault()
                 }).ToList();
+        }
+
+        internal void AddTimeLog(TimeLog timeLog)
+        {
+            _context.TimeLogs.Add(timeLog);
+            _context.SaveChanges();
+        }
+
+        public List<TimeLog> GetAllTimeLogs()
+        {
+            return _context.TimeLogs.ToList();
+        }
+
+        // Licenses
+        public void AddLicense(License license)
+        {
+            _context.Licenses.Add(license);
+            _context.SaveChanges();
+        }
+
+        // Sofwares
+        public void AddSoftware(Software software)
+        {
+            _context.Softwares.Add(software);
+            _context.SaveChanges();
+        }
+
+        // Equipment
+        public void AddEquipment(Equipment equipment)
+        {
+            _context.Equipment.Add(equipment);
+            _context.SaveChanges();
+        }
+
+        // Resources
+        public List<ProjectResource> GetAllResources()
+        {
+            return _context.ProjectResources
+                .Include(pr => pr.FKEquipment)
+                .Include(pr => pr.FKLicense)
+                .Include(pr => pr.FKSoftware)
+                .ToList();
         }
 
         // Report classes

@@ -7,6 +7,8 @@ using System.Net.NetworkInformation;
 using System.Text;
 using System.Threading.Tasks;
 
+
+
 namespace DatanautAB.UI.Employee
 {
     public static class EmployeeUI
@@ -34,8 +36,8 @@ namespace DatanautAB.UI.Employee
                 {
                     switch (employeeMenuChoice)
                     {
-                        case "1": //EmployeeActions.LogTime(repo); break;
-                        case "2": //EmployeeActions.ShowPersonalReport(repo); break;
+                        case "1": EmployeeActions.LogTime(repo); break;
+                        case "2": EmployeeActions.ShowPersonalReport(repo); break;
                         case "0": running = false; break;
                         default:
                             Console.WriteLine("Felaktigt val.");
