@@ -5,6 +5,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+using DatanautAB.Data;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using DatanautAB.Repositories;
+using DatanautAB.Models;
+
 namespace DatanautAB.UI.ProjectManager
 {
     public static class ProjectManagerUI
@@ -13,7 +22,6 @@ namespace DatanautAB.UI.ProjectManager
         {
             var repo = new DatanautRepository(context);
             bool running = true;
-
             while (running)
             {
                 Console.Clear();
@@ -36,12 +44,24 @@ namespace DatanautAB.UI.ProjectManager
                 {
                     switch (projectmanagerMenuChoice)
                     {
-                        case "1": ProjectManagerActions.AddProject(repo); break;
-                        case "2": ProjectManagerActions.UpdateProject(repo); break;
-                        case "3": ProjectManagerActions.ViewProjects(repo); break;
-                        case "4": ProjectManagerActions.AssignTeamMembers(repo); break;
-                        case "5": ProjectManagerActions.ManageResources(repo); break;
-                        case "6": ProjectManagerActions.GenerateProjectReport(repo); break;
+                        case "1":
+                            ProjectManagerActions.CreateProject(repo);
+                            break;
+                        case "2":
+                            ProjectManagerActions.EditProject(repo);
+                            break;
+                        case "3":
+                            ProjectManagerActions.ViewProjects(repo);
+                            break;
+                        case "4":
+                            ProjectManagerActions.AssignTeamMembers(repo);
+                            break;
+                        case "5":
+                            ProjectManagerActions.HandleResources(repo);
+                            break;
+                        case "6":
+                            ProjectManagerActions.GenerateProjectReport(repo);
+                            break;
                         case "0": running = false; break;
                         default:
                             Console.WriteLine("Felaktigt val.");
