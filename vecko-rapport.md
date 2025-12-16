@@ -1,8 +1,6 @@
-# DatanautAB
+# CABR_DatanautAB
 
-Datanaut AB is a technology company specializing in the development of digital tools for project management in space-related research initiatives and advanced engineering projects.
-The company collaborates with both private sector partners and public research institutions.
-To streamline internal project management, Datanaut is developing a new database solution that will serve as the foundation for a future web-based platform.
+# week 1 (11/11/25)
 
 ### Participants
 - Niklas (reporter)
@@ -14,18 +12,12 @@ To streamline internal project management, Datanaut is developing a new database
 - Identify entities and relationships
 - Create an initial sketch of the ER diagram
 - Write a backlog and break it down into tasks
-### Technologys
-- SQL
-- C#
-- Visual studio
-- SQL server management studio (SSMS)
-- Entity Framework
 
-### Design
-The project design is based on the ER diagram created in ERDplus. We used a "Database First" approach with SQL Server Management Studio (SSMS)
-to create the database, and then implemented data exchange using Entity Framework for sending and receiving data.
-
-<img width="5526" height="2580" alt="Draft_3" src="https://github.com/user-attachments/assets/f89b08b9-7e64-4ffd-988a-0505c9f72b79" />
+### What we did
+- Created initial sketch of ER diagram
+- Written the requirements list
+- Identified enteties and reletionships in ER diagram
+- Written backlog storys to later break down to tasks
 
 
 ### Problems
@@ -113,7 +105,21 @@ to create the database, and then implemented data exchange using Entity Framewor
 
 ### Problems
 - None
-### Contributors
-- Robin Markström
-- Niklas Eriksson
-- Adchariya Changtam
+
+# week 6 (16/12/25)
+
+### Participants
+- Niklas (reporter)
+- Adchariya
+- Robin
+
+### Sprintgoals
+- implement menu navigate the program
+- Add method features for menu
+
+### What we did
+- created basic menu to navigate
+- Began Added methods to menu logic
+
+### problems
+- None
