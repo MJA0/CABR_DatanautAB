@@ -247,6 +247,37 @@ namespace DatanautAB.Repositories
             return _context.TimeLogs.ToList();
         }
 
+        // Licenses
+        public void AddLicense(License license)
+        {
+            _context.Licenses.Add(license);
+            _context.SaveChanges();
+        }
+
+        // Sofwares
+        public void AddSoftware(Software software)
+        {
+            _context.Softwares.Add(software);
+            _context.SaveChanges();
+        }
+
+        // Equipment
+        public void AddEquipment(Equipment equipment)
+        {
+            _context.Equipment.Add(equipment);
+            _context.SaveChanges();
+        }
+
+        // Resources
+        public List<ProjectResource> GetAllResources()
+        {
+            return _context.ProjectResources
+                .Include(pr => pr.FKEquipment)
+                .Include(pr => pr.FKLicense)
+                .Include(pr => pr.FKSoftware)
+                .ToList();
+        }
+
         // Report classes
         public class ProjectReport
         {

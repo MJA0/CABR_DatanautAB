@@ -10,6 +10,9 @@ using DatanautAB.Models;
 using DatanautAB.UI.MainMenu;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+using System.Reflection;
+using System.Text.RegularExpressions;
 
 namespace DatanautAB
 {
@@ -43,21 +46,22 @@ namespace DatanautAB
 
             MainMenuUI.Show(db);
             var configuration = new ConfigurationBuilder()
-                .SetBasePath(Directory.GetCurrentDirectory())
-                .AddJsonFile("appsettings.json")
+                .SetBasePath(appRoot)  // AppContext.BaseDirectory points to the runtime folder
+                .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
                 .Build();
 
-            var options = new DbContextOptionsBuilder<DatanautContext>()
-                .UseSqlServer(configuration.GetConnectionString("DatanautDB"))
-                .Options;
+            // Setup DI container
+            var services = new ServiceCollection();
 
-            using var context = new DatanautContext(options);
+            services.AddDbContext<DatanautContext>(options =>
+                options.UseSqlServer(configuration.GetConnectionString("DatanautDB")));
 
-            // Seed körs EN gång
-            DbSeeder.Seed(context);
+            var provider = services.BuildServiceProvider();
 
-            MainMenuUI.Show(context);
+            // Resolve DbContext
+            using var db = provider.GetRequiredService<DatanautContext>();
 
+            MainMenuUI.Show(db);
         }
     }
 }
