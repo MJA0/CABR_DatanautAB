@@ -3,6 +3,7 @@ using DatanautAB.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -133,10 +134,6 @@ namespace DatanautAB.Repositories
                 .FirstOrDefault(t => t.TeamMemberID == memberId);
         }
 
-        
-
-
-
         public List<TeamMember> GetAllTeamMembers()
         {
             return _context.TeamMembers
@@ -155,6 +152,12 @@ namespace DatanautAB.Repositories
         public List<Skill> GetAllSkills()
         {
             return _context.Skills.ToList();
+        }
+
+        // Activity
+        public List<Activity> GetAllActivities()
+        {
+            return _context.Activities.ToList();
         }
 
         // Reports
@@ -203,6 +206,17 @@ namespace DatanautAB.Repositories
                         .Select(p => p.Budget ?? 0)
                         .FirstOrDefault()
                 }).ToList();
+        }
+
+        internal void AddTimeLog(TimeLog timeLog)
+        {
+            _context.TimeLogs.Add(timeLog);
+            _context.SaveChanges();
+        }
+
+        public List<TimeLog> GetAllTimeLogs()
+        {
+            return _context.TimeLogs.ToList();
         }
 
         // Report classes

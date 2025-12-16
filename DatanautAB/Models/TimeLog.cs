@@ -20,7 +20,7 @@ public partial class TimeLog
     [Column(TypeName = "datetime")]
     public DateTime LogDate { get; set; }
 
-    public TimeOnly TimeSpent { get; set; }
+    public TimeSpan TimeSpent { get; set; }
 
     [ForeignKey("FKActivityID")]
     [InverseProperty("TimeLogs")]

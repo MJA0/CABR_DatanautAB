@@ -1,3 +1,11 @@
+SELECT * FROM Activity;
+INSERT INTO Activity
+VALUES 
+	('Planning'),
+	('Developing'),
+	('Testing');
+GO
+
 SELECT * FROM Skill;
 INSERT INTO Skill
 VALUES 
@@ -30,20 +38,20 @@ VALUES
 	('Complete');
 GO
 
-SELECT * FROM Project;
-INSERT INTO Project(FKProjectStatusID, FKProjectManagerID, ProjectName, StartDate, EndDate, Budget )
-VALUES 
-	(1, 3, 'Project Alice', '2025-01-01', '2026-01-01', 1000001.00),
-	(2, 4, 'Project Bob', '2026-02-02', '2027-02-02', 2000002.00),
-	(3, 5, 'Project Charlie', '2027-03-03', '2028-03-03', 3000003.00);
-GO
-
 SELECT * FROM TeamMember;
 INSERT INTO TeamMember
 VALUES 
 	(1, 2, 'Dave', 'Davesson', 'dave@email.com'),
 	(2, 3, 'Eve', 'Evesson', 'eve@email.com'),
 	(3, 1, 'Frank', 'Franksson', 'frank@email.com');
+GO
+
+SELECT * FROM Project;
+INSERT INTO Project(FKProjectStatusID, FKProjectManagerID, ProjectName, StartDate, EndDate, Budget )
+VALUES 
+	(1, 3, 'Project Alice', '2025-01-01', '2026-01-01', 1000001.00),
+	(2, 4, 'Project Bob', '2026-02-02', '2027-02-02', 2000002.00),
+	(3, 5, 'Project Charlie', '2027-03-03', '2028-03-03', 3000003.00);
 GO
 
 -- START Trigger check for check_overlapping_skill_role
