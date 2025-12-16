@@ -219,7 +219,7 @@ namespace DatanautAB.UI.Employee
             Console.WriteLine($"[ID: {currentTeamMember.TeamMemberID} | NAMN: {currentTeamMember.FirstName} {currentTeamMember.LastName}]");
             foreach (var foundTimeLog in foundTimeLogs)
             {
-                // Note: String format is very specific here
+                // Note: String format here is very specific
                 Console.WriteLine($@"
   PROJEKT: {foundTimeLog.FKProject.ProjectName}
   DATUM: {foundTimeLog.LogDate}
