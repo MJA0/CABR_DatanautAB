@@ -1,3 +1,29 @@
+<<<<<<< HEAD
+=======
+-- ProjectTeam: Check duplicate team member after insert in Project Team
+CREATE TRIGGER check_teamMember
+ON ProjectTeam
+AFTER INSERT
+AS 
+BEGIN
+    SET NOCOUNT ON;
+    IF EXISTS (
+        SELECT 1
+        FROM ProjectTeam pt
+        INNER JOIN inserted i
+            ON pt.FKTeamMemberID = i.FKTeamMemberID
+            AND pt.FkProjectId = i.FkProjectId
+        WHERE pt.ProjectTeamID <> i.ProjectTeamID
+    )
+    BEGIN
+        RAISERROR('Trying to insert uplicate team member in project', 16, 1);
+        RETURN;
+    END
+END;
+
+GO
+
+>>>>>>> add-folders
 -- ProjectTeam: Check overlapping skills or roles in the same project during after insert in Project Team
 CREATE TRIGGER check_overlapping_skill_role
 ON ProjectTeam
@@ -53,6 +79,7 @@ BEGIN
     FROM Software s
     INNER JOIN inserted i ON s.SoftwareId = i.FKSoftwareID;
 END;
+<<<<<<< HEAD
 GO
 
 -- Resourse: Updates quantity when assigning a equipment in resourse, if quantity is less than 0 cancel insert
@@ -105,3 +132,5 @@ BEGIN
     FROM License l
     INNER JOIN inserted i ON l.LicenseID = i.FKLicenseID;
 END;
+=======
+>>>>>>> add-folders
