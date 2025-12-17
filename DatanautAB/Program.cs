@@ -1,13 +1,10 @@
 ﻿using DatanautAB.Data;
-using DatanautAB.Repositories;
 using DatanautAB.UI.MainMenu;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using System.Reflection;
 using System.Text.RegularExpressions;
-using DatanautAB.DataSeed;
-using DatanautAB.Models;
 
 namespace DatanautAB
 {
@@ -32,7 +29,7 @@ namespace DatanautAB
             var services = new ServiceCollection();
 
             services.AddDbContext<DatanautContext>(options =>
-                options.UseSqlServer(configuration.GetConnectionString("DatanautAB")));
+                options.UseSqlServer(configuration.GetConnectionString("DatanautDB")));
 
             var provider = services.BuildServiceProvider();
 
