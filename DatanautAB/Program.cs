@@ -32,7 +32,7 @@ namespace DatanautAB
             var services = new ServiceCollection();
 
             services.AddDbContext<DatanautContext>(options =>
-                options.UseSqlServer(configuration.GetConnectionString("EducationProgramDB")));
+                options.UseSqlServer(configuration.GetConnectionString("DatanautAB")));
 
             var provider = services.BuildServiceProvider();
 
