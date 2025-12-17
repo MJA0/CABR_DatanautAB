@@ -4,16 +4,6 @@ Datanaut AB is a technology company specializing in the development of digital t
 The company collaborates with both private sector partners and public research institutions.
 To streamline internal project management, Datanaut is developing a new database solution that will serve as the foundation for a future web-based platform.
 
-### Participants
-- Niklas (reporter)
-- Adchariya
-
-### Sprintgoals
-- Roles & session goals: Appoint a reporter, a code responsible, and a merge responsible. Write a requirements list and create an initial sketch of the ER diagram.
-- Interpret the assignment and write a requirements list
-- Identify entities and relationships
-- Create an initial sketch of the ER diagram
-- Write a backlog and break it down into tasks
 ### Technologys
 - SQL
 - C#
@@ -26,3 +16,8 @@ The project design is based on the ER diagram created in ERDplus. We used a "Dat
 to create the database, and then implemented data exchange using Entity Framework for sending and receiving data.
 
 <img width="5526" height="2580" alt="Draft_3" src="https://github.com/user-attachments/assets/f89b08b9-7e64-4ffd-988a-0505c9f72b79" />
+
+### Participants
+- Niklas
+- Adchariya
+- robin
